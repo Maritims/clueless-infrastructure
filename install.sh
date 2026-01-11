@@ -13,7 +13,7 @@ done
 
 # Podman container files
 mkdir -p ~/.config/containers/systemd
-for f in ~/dotfiles/.config/containers/systemd/*; do
+for f in .config/containers/systemd/*; do
 	echo "Creating symlink: $f"
 	ln -sf "$f" ~/.config/containers/systemd/
 done
