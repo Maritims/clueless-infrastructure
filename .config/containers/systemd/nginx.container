@@ -1,0 +1,24 @@
+[Unit]
+Description=Reverse proxy
+After=network-online.target
+
+[Container]
+Image=docker.io/nginx:stable-alpine
+PublishPort=80:80,443:443
+Network=web-gateway.network
+
+# Mount the main config.
+Volume=/home/martin/containers/nginx/default.conf:/etc/nginx/default.conf:ro
+
+# Mount the directory with the individual site configs.
+Volume=/home/martin/proxy-configs:/etc/nginx/conf.d:ro
+
+# Mount shared Certbot volumes.
+Volume=certbot_certs:/etc/letsencrypt:ro
+Volume=certbot_webroot:/var/www/html:ro
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=multi-user.target default.target

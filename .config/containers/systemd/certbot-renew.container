@@ -1,0 +1,19 @@
+[Unit]
+Description=Certbot Automated Renewal
+
+[Container]
+Image=docker.io/certbot/certbot:latest
+Volume=certbot-certs.volume:/etc/letsencrypt:Z
+Volume=certbot-webroot.volume:/var/www/html:Z
+
+# Note: We use the service name 'nginx-', not the container name, for the kill command
+Exec=renew --webroot -w /var/www/html --non-interactive
+
+[Service]
+Type=oneshot
+# This runs on your HOST after the container finishes
+# It reloads Nginx to pick up any new certs
+ExecStopPost=/usr/bin/systemctl --user kill -s SIGHUP nginx.service
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,15 @@
+[Unit]
+Description=clueless.no
+
+[Container]
+ContainerName=clueless-website
+Image=docker.io/nginx:stable-alpine
+Network=web-gateway.network
+Volume=/home/martin/containers/clueless-website/data:/usr/share/nginx/html:ro
+Volume=/home/martin/containers/clueless-website/config/default.conf:/etc/nginx/default.conf:ro
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=multi-user.target default.target
