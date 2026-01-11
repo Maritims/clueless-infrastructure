@@ -1,9 +1,10 @@
 # clueless-infrastructure
 
+This repository contains the Podman configurations and bash scripts for adding and removing websites.
+
 ## Installation
+Enter the directory in which you cloned this repository and perform the following commands:
 ```bash
-mkdir -p ~/.config/containers/systemd
-ln -s ~/dotfiles/.config/containers/systemd/* ~/.config/containers/systemd/
-mkdir -p ~/.config/systemd/user
-ln -s ~/dotfiles/.config/containers/systemd/* ~/.config/containers/systemd/
+chmod +x install.sh
+./install.sh
 ```
