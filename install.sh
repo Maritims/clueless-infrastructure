@@ -7,25 +7,40 @@ shopt -s nullglob
 # Local scripts
 mkdir -p ~/.local/bin
 for f in .local/bin/*; do
-	echo "Creating symlink: $f"
-	ln -sf "$f" "$PWD/.local/bin/"
+	if [ ! -e ~/.local/bin/$(basename "$f") ]; then
+		echo "Creating symlink: $f"
+		ln -sf "$PWD/$f" ~/.local/bin/
+	else
+		echo "Symlink already exists: $f"
+	fi
 done
 
 # Podman container files
 mkdir -p ~/.config/containers/systemd
 for f in .config/containers/systemd/*; do
-	echo "Creating symlink: $f"
-	ln -sf "$f" "$PWD/.config/containers/systemd/"
+	if [ ! -e ~/.config/containers/systemd/$(basename "$f") ]; then
+		echo "Creating symlink: $f"
+		ln -sf "$PWD/$f" ~/.config/containers/systemd/
+	else
+		echo "Symlink already exists: $f"
+	fi
 done
 
 # systemd user timers
 mkdir -p ~/.config/systemd/user
 for f in .config/systemd/user/*; do
-	echo "Creating symlink: $f"
-	ln -sf "$f" "$PWD/.config/systemd/user/"
+	if [ ! -e ~/.config/systemd/user/$(basename "$f") ]; then
+		echo "Creating symlink: $f"
+		ln -sf "$PWD/$f" ~/.config/systemd/user/
+	else
+		echo "Symlink already exists: $f"
+	fi
 done
 
 # Nginx configuration
-mkdir -p ~/.config/nginx
-echo "Creating symlink: .config/nginx/nginx.conf"
-ln -sf "$PWD/.config/nginx/nginx.conf" ~/.config/nginx/nginx.conf
+if [ ! -e ~/.config/nginx ]; then
+	echo "Creating symlink: .config/nginx"
+	ln -s "$PWD/.config/nginx" ~/.config/nginx
+else
+	echo "Symlink already exists: .config/nginx"
+fi
