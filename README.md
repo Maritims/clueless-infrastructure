@@ -18,7 +18,7 @@ Perform the following steps after installing for the first time or after migrati
     systemctl --user enable certbot-renew
     systemctl --user enable certbot-renew.timer
     systemctl --user enable nginx
-    systemctl --user enable clueless-website```
+    systemctl --user enable clueless-website
     ```
 2. Generate certificates using certbot:
     ```bash
