@@ -9,7 +9,7 @@ PublishPort=80:80,443:443
 Network=web-gateway.network
 
 # Mount the main config.
-Volume=/home/martin/containers/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+Volume=%h/.config/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
 
 # Mount the directory with the individual site configs.
 Volume=/home/martin/proxy-configs:/etc/nginx/conf.d:ro

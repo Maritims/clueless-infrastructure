@@ -1,3 +1,5 @@
+.idea/
+
 # Ignore systemd auto-generated folders.
 .config/systemd/user/sockets.target.wants/
 .config/systemd/user/timers.target.wants/
