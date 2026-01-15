@@ -4,6 +4,7 @@ Description=Internal network for reverse proxy and websites
 [Network]
 # This defines the name you use in the 'Network=' line of your .container files
 NetworkName=web-gateway
-
-# This enables DNS so 'clueless-site' resolves to the correct IP automatically
+Subnet=10.89.1.0/24
+Gateway=10.89.1.1
+DNS=10.89.1.1
 Internal=false

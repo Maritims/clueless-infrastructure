@@ -1,6 +1,6 @@
 [Unit]
 Description=Reverse proxy
-After=web-gateway.network
+After=network-online.target
 
 [Container]
 ContainerName=nginx
