@@ -17,9 +17,10 @@ Perform the following steps after installing for the first time or after migrati
     systemctl --user daemon-reload
     systemctl --user enable certbot-renew
     systemctl --user enable certbot-renew.timer
+    systemctl --user enable web-gateway.network
     systemctl --user enable nginx
     systemctl --user enable clueless-website
-    systemctl --user enable web-gateway.network
+    systemctl --user enable podman-image-watch.path
     ```
 2. Generate certificates using certbot:
     ```bash
@@ -43,4 +44,5 @@ Start the services using systemctl:
 systemctl --user start web-gateway.network
 systemctl --user start nginx
 systemctl --user start clueless-website
+systemctl --user start podman-image-watch.path
 ```
