@@ -1,0 +1,9 @@
+[Unit]
+Description=Watch for new Podman OCI image uploads
+
+[Path]
+PathModified=%h/.local/share/podman/incoming-images
+PathExistsGlob=%h/.local/share/podman/incoming-images/*.tar
+
+[Install]
+WantedBy=default.target

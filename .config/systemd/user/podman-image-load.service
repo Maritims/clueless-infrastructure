@@ -1,0 +1,7 @@
+[Unit]
+Description=Load new Podman image and restart container
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/clueless-load-and-restart.sh
