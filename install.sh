@@ -15,6 +15,17 @@ for f in .local/bin/*; do
 	fi
 done
 
+# Podman directories
+mkdir -p ~/.local/share/podman
+for f in .local/share/podman/*; do
+	if [ ! -e ~/.local/share/podman/$(basename "$f") ]; then
+		echo "Creating symlink: $f"
+		ln -sf "$PWD/$f" ~/.local/share/podman/
+	else
+		echo "Symlink already exists: $f"
+	fi
+done
+
 # Podman container files
 mkdir -p ~/.config/containers/systemd
 for f in .config/containers/systemd/*; do
