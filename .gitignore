@@ -1,4 +1,5 @@
 .idea/
+*.tar
 
 # Ignore systemd auto-generated folders.
 .config/systemd/user/sockets.target.wants/

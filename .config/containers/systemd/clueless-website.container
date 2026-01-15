@@ -4,7 +4,7 @@ Description=clueless.no
 [Container]
 ContainerName=clueless-website
 Image=clueless-website:latest
-Network=web-gateway.network
+Network=web-gateway
 
 [Service]
 Restart=always
