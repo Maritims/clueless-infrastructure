@@ -19,6 +19,7 @@ Perform the following steps after installing for the first time or after migrati
     systemctl --user enable certbot-renew.timer
     systemctl --user enable nginx
     systemctl --user enable clueless-website
+    systemctl --user enable web-gateway.network
     ```
 2. Generate certificates using certbot:
     ```bash
@@ -39,8 +40,7 @@ Perform the following steps after installing for the first time or after migrati
 ## Usage
 Start the services using systemctl:
 ```bash
-systemctl --user enable nginx
+systemctl --user start web-gateway.network
 systemctl --user start nginx
-systemctl --user enable clueless-website
 systemctl --user start clueless-website
 ```
