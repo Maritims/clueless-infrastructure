@@ -1,0 +1,14 @@
+[Unit]
+Description=clueless.no guestbook api
+
+[Container]
+ContainerName=clueless-guestbook
+Image=clueless-guestbook:latest
+Network=web-gateway
+Volume=clueless-guestbook.volume:/app/data:Z
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=multi-user.target default.target
