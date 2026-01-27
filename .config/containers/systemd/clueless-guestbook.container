@@ -3,8 +3,17 @@ Description=clueless.no guestbook api
 
 [Container]
 ContainerName=clueless-guestbook
+Environment=SERVER_PORT=8080
+Environment=ALLOWED_ORIGIN=https://clueless.no
+Environment=DEFAULT_PAGE_SIZE=10
+Environment=SENDER_EMAIL_ADDRESS=no-reply@clueless.no
 Image=clueless-guestbook:latest
 Network=web-gateway
+Secret=altcha_hmac_key,type=env,target=ALTCHA_HMAC_KEY
+Secret=connection_string,type=env,target=CONNECTION_STRING
+Secret=recipient_email_address,type=env,target=RECIPIENT_EMAIL_ADDRESS
+Secret=resend_api_key,type=env,target=RESEND_API_KEY
+Secret=maximum_submissions_per_user_per_minute,type=env,target=MAXIMUM_SUBMISSIONS_PER_USER_PER_MINUTE
 Volume=clueless-guestbook.volume:/app/data:Z
 
 [Service]
