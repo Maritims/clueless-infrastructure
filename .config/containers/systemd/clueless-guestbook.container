@@ -5,6 +5,7 @@ Description=clueless.no guestbook api
 ContainerName=clueless-guestbook
 Environment=SERVER_PORT=8080
 Environment=ALLOWED_ORIGIN=https://clueless.no
+Environment=ALLOWED_REFERRERS=https://clueless.no/guestbook.html
 Environment=DEFAULT_PAGE_SIZE=10
 Environment=SENDER_EMAIL_ADDRESS=no-reply@clueless.no
 Image=clueless-guestbook:latest
