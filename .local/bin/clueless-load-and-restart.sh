@@ -43,5 +43,5 @@ mapfile -t containers < <(
 # Restart affected containers
 for cid in "${containers[@]}"; do
     echo "Restarting container $cid"
-    #podman restart "$cid"
+    podman restart "$cid"
 done
