@@ -2,7 +2,7 @@
 Description=Watch for new Podman OCI image uploads
 
 [Path]
-PathModified=%h/.local/share/podman/incoming-images/clueless-website.oci.tar
+PathModified=%h/.local/share/podman/incoming-images/clueless-website_latest.oci.tar
 
 [Install]
 WantedBy=default.target
