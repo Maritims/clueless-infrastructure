@@ -1,0 +1,19 @@
+[Unit]
+Description=clueless.no webmention service
+
+[Container]
+ContainerName=clueless-webmention-service
+Image=docker.io/maritim/webmention-service:latest
+Network=web-gateway
+Environment=SERVER_PORT=8081
+Environment=WEBMENTION_SUPPORTED_DOMAINS=clueless.no
+Secret=resend_api_key,type=env,target=WEBMENTION_RESEND_API_KEY
+Secret=webmention_sender_email_address,type=env,target=WEBMENTION_SENDER_EMAIL_ADDRESS
+Secret=webmention_recipient_email_address,type=env,target=WEBMENTION_RECIPIENT_EMAIL_ADDRESS
+Volume=clueless-guestbook.volume:/app/data:Z
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=multi-user.target default.target
