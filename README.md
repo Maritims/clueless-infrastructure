@@ -39,8 +39,8 @@ Automated infrastructure for hosting websites using Podman Quadlets, featuring N
 Enter the directory in which you cloned this repository and perform the following commands:
 
 ```bash
-chmod +x install.sh
-./install.sh
+sudo apt install make
+make all
 ```
 
 ## First time usage
