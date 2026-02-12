@@ -28,6 +28,7 @@ endif
 	@echo "Linking scripts and Quadlets..."
 	@find .local/bin -type f -exec bash -c 'ln -sf "$(PWD)/$$0" "$(HOME)/$$0" && echo "    -> Linked $$0"' {} \;
 	@find .config/containers/systemd -type f -exec bash -c 'ln -sf "$(PWD)/$$0" "$(HOME)/$$0" && echo "    -> Linked $$0"' {} \;
+	@find .config/systemd/user -type f -exec bash -c 'ln -sf "$(PWD)/$$0" "$(HOME)/$$0" && echo "    -> Linked $$0"' {} \;
 
 ssl:
 	@echo "Checking environment..."
