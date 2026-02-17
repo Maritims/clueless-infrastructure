@@ -7,6 +7,7 @@ Image=docker.io/maritim/webmention-service:latest
 Network=web-gateway
 Environment=SERVER_PORT=8081
 Environment=WEBMENTION_SUPPORTED_DOMAINS=clueless.no
+Environment=WEBMENTION_DB_CONNECTION_STRING=jdbc:sqlite:/app/data/webmentions.db
 Secret=resend_api_key,type=env,target=WEBMENTION_RESEND_API_KEY
 Secret=webmention_sender_email_address,type=env,target=WEBMENTION_SENDER_EMAIL_ADDRESS
 Secret=webmention_recipient_email_address,type=env,target=WEBMENTION_RECIPIENT_EMAIL_ADDRESS
