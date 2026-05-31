@@ -7,7 +7,7 @@ ContainerName=nginx
 Image=docker.io/nginx:stable-alpine
 Environment=NGINX_HTTP_PORT=8080
 Environment=NGINX_HTTPS_PORT=4430
-PublishPort=${NGINX_HTTP_PORT}:80,${NGINX_HTTPS_PORT}:443
+PublishPort=80:80,443:443
 Network=web-gateway
 
 Volume=%h/.config/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
